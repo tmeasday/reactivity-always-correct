@@ -82,13 +82,12 @@ if (Meteor.isClient) {
   console.log("LOGIN");
   Session.set('hasUser', true);
   
-  // The waitlist *should immediately be unready, but isn't*
+  // Now the waitlist does immediately become unready
   console.log("Waitlist ready: ", waitList.ready());
   console.log("FLUSH");
   Deps.flush();
   console.log("Waitlist ready: ", waitList.ready());  
   
-  // on the other hand, it does immediately become ready when the sub is
   console.log("SUB GOES READY");
   Session.set('subReady', true)
   console.log("Waitlist ready: ", waitList.ready());
